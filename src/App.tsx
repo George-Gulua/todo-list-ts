@@ -1,8 +1,8 @@
 import React from 'react';
-import classes from './App.css';
+import classes from './App.module.css';
 function App() {
   return (
-    <div className={classes.appAdd}>
+    <div className={classes.app}>
       Работает
     </div>
   );

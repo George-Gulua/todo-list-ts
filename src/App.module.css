@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #3A265C;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    height: 100%;
+    width: 100%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 400px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.app {
+    margin-top: 20px;
+    width: 800px;
+}
