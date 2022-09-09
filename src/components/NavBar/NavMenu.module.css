@@ -1,0 +1,10 @@
+.nav-menu {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 80px;
+}
+
+.nav-menu__link {
+    text-decoration: none;
+    color: white;
+}

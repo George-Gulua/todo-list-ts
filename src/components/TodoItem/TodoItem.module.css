@@ -1,0 +1,33 @@
+.todo-item {
+    display: flex;
+    padding: 20px;
+    background: #F1F1F1;
+    border-radius: 12px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+    transition: .3s;
+}
+
+.todo-item:hover {
+    transform: scale(1.05);
+}
+
+.todo-item__text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.todo-item__action {
+    font-size: 40px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s;
+}
+.todo-item__action:hover {
+    color: rgb(239, 59, 59);
+}

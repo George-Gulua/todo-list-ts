@@ -1,0 +1,13 @@
+.todo-list {
+    margin-top: 24px;
+}
+
+.todo-list__empty {
+    padding: 12px 24px;
+    background: rgb(253, 250, 230);
+    color: #212121;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px rgba(66 66 66 / 10%);
+    font-size: 18px;
+}
