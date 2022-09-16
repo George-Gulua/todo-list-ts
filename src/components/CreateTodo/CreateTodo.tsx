@@ -11,7 +11,7 @@ const CreateTodo:FC<CreateTodoProps> = ({ createTodoItem }) => {
 
     const clickValue = (event: React.MouseEvent<HTMLButtonElement>) => {
         const newTodoItem = {
-            id: Date.now().toFixed(2),
+            id: Date.now(),
             title: titleRef.current?.value,
             body: bodyRef.current?.value
         }

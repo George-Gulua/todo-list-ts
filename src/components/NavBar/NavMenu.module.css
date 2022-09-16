@@ -7,4 +7,10 @@
 .nav-menu__link {
     text-decoration: none;
     color: white;
+    transition: .3s;
+    border-bottom: 1px solid white;
+}
+
+.nav-menu__link:hover {
+    color: #EF2763;
 }
