@@ -1,16 +1,12 @@
 import classes from './App.module.css';
-import {BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import NavMenu from "./components/NavBar/NavMenu";
 import AppRouter from "./components/AppRouter/AppRouter";
-import {useEffect, useState} from "react";
-import {AuthContext} from "./context/auth";
+import { useState } from "react";
+import { AuthContext } from "./context/auth";
 
 function App() {
     const [isAuth, setIsAuth] = useState(false);
-    useEffect(() => {
-
-    }, [isAuth])
-
     return (
         <AuthContext.Provider value={{
             isAuth,

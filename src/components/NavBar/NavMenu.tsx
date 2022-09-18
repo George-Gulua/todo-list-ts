@@ -4,7 +4,7 @@ import classes from './NavMenu.module.css'
 import {AuthContext} from "../../context/auth";
 
 const NavMenu = () => {
-    const {isAuth, setIsAuth} = useContext(AuthContext);
+    const { isAuth, setIsAuth } = useContext(AuthContext);
 
     const logout = () => {
         setIsAuth(false)

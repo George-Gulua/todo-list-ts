@@ -8,9 +8,8 @@ import TodoHelper from "../../services/todo-helper";
 const TodosPage:FC = () => {
     const [todoList, setTodoList] = useState([])
     useFetching(todoList, setTodoList)
-
 /*
-    const CreateTodoItem = (todoItem: never) => {
+    const сreateTodoItem = (todoItem: never) => {
         if(todoItem) {
             const newTodoList = [...todoList, todoItem]
             setTodoList(newTodoList)
@@ -24,14 +23,12 @@ const TodosPage:FC = () => {
         StorageService.StorageEdit(Filtered)
     }
 */
-
     const createTodoItem = (todoItem: never) => {
         TodoHelper.createTodoItem(todoItem, todoList, setTodoList)
     }
     const deleteTodoItemById = (todoItemId: number) => {
         TodoHelper.deleteTodoItemById(todoItemId, todoList, setTodoList)
     }
-
     return (
         <div className={classes['todos-page']}>
             <h1 className={ classes['todos-page__title']}>Список задач</h1>
