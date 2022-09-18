@@ -1,7 +1,7 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 import classes from './TodoList.module.css'
 import TodoItem from "../TodoItem/TodoItem";
-import {Itodo} from "../../types/types";
+import { Itodo } from "../../types/types";
 
 interface TodoListProps{
     todoList: Array<Itodo>;

@@ -1,39 +1,41 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, { FC, useState } from 'react';
 import classes from './TodosPage.module.css'
 import CreateTodo from "../CreateTodo/CreateTodo";
 import TodoList from "../TodoList/TodoList";
-import StorageService from "../../services/local-storage";
+import { useFetching } from "../../hooks/useFetching";
+import TodoHelper from "../../services/todo-helper";
 
 const TodosPage:FC = () => {
-    useEffect(() => {
-        StorageService.StorageInitialization(todoList)
-        fetchTodo()
-    }, [])
-
     const [todoList, setTodoList] = useState([])
+    useFetching(todoList, setTodoList)
 
-    const fetchTodo = () => {
-        StorageService.StorageFetching().then(todoList => {
-            setTodoList(todoList)
-        })
-    }
-
+/*
     const CreateTodoItem = (todoItem: never) => {
         if(todoItem) {
-            setTodoList([...todoList, todoItem])
-            StorageService.StorageEdit(todoList)
+            const newTodoList = [...todoList, todoItem]
+            setTodoList(newTodoList)
+            StorageService.StorageEdit(newTodoList)
         }
     }
 
     const deleteTodoItemById = (todoItemId: number) => {
-        setTodoList(todoList.filter(({ id }) => id !== todoItemId))
-        StorageService.StorageEdit(todoList)
+        const Filtered = todoList.filter(({ id }) => id !== todoItemId)
+        setTodoList(Filtered)
+        StorageService.StorageEdit(Filtered)
+    }
+*/
+
+    const createTodoItem = (todoItem: never) => {
+        TodoHelper.createTodoItem(todoItem, todoList, setTodoList)
+    }
+    const deleteTodoItemById = (todoItemId: number) => {
+        TodoHelper.deleteTodoItemById(todoItemId, todoList, setTodoList)
     }
 
     return (
         <div className={classes['todos-page']}>
             <h1 className={ classes['todos-page__title']}>Список задач</h1>
-            <CreateTodo createTodoItem={ CreateTodoItem }/>
+            <CreateTodo createTodoItem={ createTodoItem }/>
             <hr/>
             <TodoList todoList={ todoList } deleteTodoItemById={ deleteTodoItemById }/>
         </div>

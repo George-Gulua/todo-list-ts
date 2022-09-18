@@ -5,19 +5,18 @@ import LoginPage from "../LoginPage/LoginPage";
 import {AuthContext} from "../../context/auth";
 
 const AppRouter = () => {
-    const {isAuth, setIsAuth} = useContext(AuthContext);
-
+    const {isAuth} = useContext(AuthContext);
     return (
         isAuth
             ?
             <Routes>
-                <Route path = "/todos" element={<TodosPage />}/>
                 <Route path = "*" element={<TodosPage />}/>
+                <Route path = "/todos" element={<TodosPage />}/>
             </Routes>
             :
             <Routes>
-                <Route path = "/login" element={<LoginPage />}/>
                 <Route path = "*" element={<LoginPage />}/>
+                <Route path = "/login" element={<LoginPage />}/>
             </Routes>
     );
 };

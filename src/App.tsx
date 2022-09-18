@@ -7,6 +7,9 @@ import {AuthContext} from "./context/auth";
 
 function App() {
     const [isAuth, setIsAuth] = useState(false);
+    useEffect(() => {
+
+    }, [isAuth])
 
     return (
         <AuthContext.Provider value={{
