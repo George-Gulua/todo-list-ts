@@ -6,7 +6,7 @@ export default class StorageService {
             localStorage.setItem('todo-list', JSON.stringify([]))
         }
     }
-    static async StorageFetching () {
+    static async StorageFetching () {/*Избавиться от фетчинга (задача работаь только с localstorage без репозиторория)*/
         let fetchData = JSON.parse(localStorage.getItem('todo-list') || '{}')
 
         if(JSON.parse(localStorage.getItem('todo-list') || '{}').length === 0) {

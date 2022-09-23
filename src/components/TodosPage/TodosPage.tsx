@@ -22,6 +22,7 @@ const TodosPage:FC = () => {
         setTodoList(Filtered)
         StorageService.StorageEdit(Filtered)
     }
+    Создать хук, который возвращает
 */
     const createTodoItem = (todoItem: never) => {
         TodoHelper.createTodoItem(todoItem, todoList, setTodoList)
