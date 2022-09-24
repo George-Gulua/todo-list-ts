@@ -3,14 +3,18 @@ import { BrowserRouter } from "react-router-dom";
 import NavMenu from "./components/NavBar/NavMenu";
 import AppRouter from "./components/AppRouter/AppRouter";
 import { useState } from "react";
-import { AuthContext } from "./context/auth";
+import { GlobalContext } from "./context/global";
+import { Itodo } from "./types/types";
 
 function App() {
     const [isAuth, setIsAuth] = useState(false);
+    const [todoList, setTodoList] = useState<Itodo[]>([])
     return (
-        <AuthContext.Provider value={{
+        <GlobalContext.Provider value={{
             isAuth,
-            setIsAuth
+            setIsAuth,
+            todoList,
+            setTodoList
         }}>
             <BrowserRouter>
                 <main className={ classes.app }>
@@ -20,7 +24,7 @@ function App() {
                     </div>
                 </main>
             </BrowserRouter>
-        </AuthContext.Provider>
+        </GlobalContext.Provider>
     );
 }
 

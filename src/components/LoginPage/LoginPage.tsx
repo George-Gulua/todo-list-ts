@@ -1,14 +1,12 @@
 import React, {useContext} from 'react';
 import classes from './LoginPage.module.css'
-import {AuthContext} from "../../context/auth";
-import StorageService from "../../services/local-storage";
+import { GlobalContext } from "../../context/global";
 
 const LoginPage = () => {
-    const { setIsAuth } = useContext(AuthContext);
+    const { setIsAuth } = useContext(GlobalContext);
 
     const login = () => {
         setIsAuth(true);
-        StorageService.StorageSetItem('auth', 'true')
     }
 
     return (

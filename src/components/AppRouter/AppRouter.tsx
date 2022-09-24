@@ -1,11 +1,11 @@
 import React, {useContext, useState} from 'react';
 import { Route, Routes} from "react-router-dom";
-import TodosPage from "../TodosPage/TodosPage";
+import TodosPage from "../Todo/TodosPage/TodosPage";
 import LoginPage from "../LoginPage/LoginPage";
-import {AuthContext} from "../../context/auth";
+import { GlobalContext } from "../../context/global";
 
 const AppRouter = () => {
-    const {isAuth} = useContext(AuthContext);
+    const {isAuth} = useContext(GlobalContext);
     return (
         isAuth
             ?

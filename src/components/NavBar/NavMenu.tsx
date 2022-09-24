@@ -1,14 +1,13 @@
 import React, {useContext} from 'react';
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import classes from './NavMenu.module.css'
-import {AuthContext} from "../../context/auth";
+import { GlobalContext } from "../../context/global";
 
 const NavMenu = () => {
-    const { isAuth, setIsAuth } = useContext(AuthContext);
+    const { isAuth, setIsAuth } = useContext(GlobalContext);
 
     const logout = () => {
         setIsAuth(false)
-        localStorage.setItem('auth', 'false')
     }
     return (
         isAuth

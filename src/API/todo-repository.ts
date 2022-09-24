@@ -2,11 +2,16 @@ import axios from 'axios';
 
 export default class TodoRepository {
     static async fetch() {
-        const { data } = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10')
+        const { data } = await axios.get('http://localhost:2000/api/todos')
+        return data
+    }
+    static async create(item: {}) {
+        const { data } = await axios.post('http://localhost:2000/api/todos', item)
+        return data
+    }
+    // todo:fix typeId
+    static async deleteById(id: any) {
+        const { data } = await axios.delete(`http://localhost:2000/api/todos/${id}`)
         return data
     }
 }
-/*Создать интерфейс с методами, которые мы юзаем в реакете. Сделать две реализации:
-* 1)всегда возвращает что-то localstorage.
-* 2)когда мы переделаем массив на вход, он загрузился с LocalStorage inmemory
-* */
