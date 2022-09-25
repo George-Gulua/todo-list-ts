@@ -3,25 +3,31 @@
     flex-direction: column;
     gap: 10px;
     margin: 40px 0;
+    align-items: center;
 }
 
 .create-todo__input {
     width: 100%;
     padding: 8px 16px;
     border-radius: 4px;
+    outline: none;
+    border: none;
+    background: #DEDEDE;
 }
 
 .create-todo__btn {
-    padding: 8px 30px;
+    width: 200px;
+    padding: 12px 30px;
     color: white;
     font-size: 14px;
-    background: #EF2763;
+    background: #40C59A;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin-top: 10px;
+    transition: .3s;
 }
 
 .create-todo__btn:hover {
-    background: #40C59A;
-    transition: .3s;
+    box-shadow: 0 0 12px white;
 }
