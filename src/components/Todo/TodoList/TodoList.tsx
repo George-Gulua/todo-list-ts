@@ -10,7 +10,7 @@ const TodoList:FC = () => {
         <div className={ classes['todo-list'] }>
             {!!todoList.length
                 ? todoList.map(todoItem => (
-                    <TodoItem key={ todoItem.id } item={ todoItem } />
+                    <TodoItem key={ todoItem._id } item={ todoItem } />
                 ))
                 :<div className={classes['todo-list__empty']}>Список задач пуст</div>
             }

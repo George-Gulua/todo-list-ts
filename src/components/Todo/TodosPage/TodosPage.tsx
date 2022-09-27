@@ -1,4 +1,4 @@
-import React, {FC, useContext, useEffect, useState} from 'react';
+import React, { FC, useContext, useEffect } from 'react';
 import classes from './TodosPage.module.css'
 import CreateTodo from "../../CreateTodo/CreateTodo";
 import TodoList from "../TodoList/TodoList";
@@ -13,7 +13,7 @@ const TodosPage:FC = () => {
         (async () => {
             setTodoList(await TodoRepository.fetch())
         })()
-    }, [])
+    }, [setTodoList])
 
     return (
         <div className={classes['todos-page']}>

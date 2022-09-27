@@ -1,4 +1,4 @@
-import React, {FC, useContext, useRef} from 'react';
+import React, { FC, useContext, useRef } from 'react';
 import classes from './CreateTodo.module.css';
 import TodoRepository from "../../API/todo-repository";
 import { GlobalContext } from "../../context/global";
@@ -11,7 +11,6 @@ const CreateTodo:FC = () => {
     const clickValue = () => {
         (async () => {
             const CreatedTodoList = TodoRepository.create({
-                id: Date.now(),
                 title: titleRef.current?.value,
                 body: bodyRef.current?.value
             })

@@ -9,9 +9,8 @@ export default class TodoRepository {
         const { data } = await axios.post('http://localhost:2000/api/todos', item)
         return data
     }
-    // todo:fix typeId
-    static async deleteById(id: any) {
-        const { data } = await axios.delete(`http://localhost:2000/api/todos/${id}`)
+    static async deleteById(_id: {}) {
+        const { data } = await axios.delete(`http://localhost:2000/api/todos/${_id}`)
         return data
     }
 }

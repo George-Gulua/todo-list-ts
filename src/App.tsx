@@ -8,7 +8,7 @@ import { Itodo } from "./types/types";
 import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 
 function App() {
-    const [isAuth, setIsAuth] = useState(false);
+    const [isAuth, setIsAuth] = useState(false)
     const [todoList, setTodoList] = useState<Itodo[]>([])
     return (
         <GlobalContext.Provider value={{
@@ -21,14 +21,13 @@ function App() {
                 <BrowserRouter>
                     <main className={ classes.app }>
                         <div className={ classes.container }>
-                            <NavMenu/>
-                            <AppRouter/>
+                            <NavMenu />
+                            <AppRouter />
                         </div>
                     </main>
                 </BrowserRouter>
             </ErrorBoundary>
         </GlobalContext.Provider>
-    );
+    )
 }
-
 export default App;

@@ -4,16 +4,16 @@ import {Itodo} from "../../../types/types";
 import TodoRepository from "../../../API/todo-repository";
 import { GlobalContext } from "../../../context/global";
 
-interface TodoItem  {
+interface TodoItemProps  {
     item: Itodo;
 }
 
-const TodoItem:FC<TodoItem> = ({ item}) => {
+const TodoItem:FC<TodoItemProps> = ({ item}) => {
     const { setTodoList } = useContext(GlobalContext);
 
-    const deleteTodo = (id: number) => {
+    const deleteTodo = (_id: {}) => {
         (async () => {
-            setTodoList(await TodoRepository.deleteById(id))
+            setTodoList(await TodoRepository.deleteById(_id))
         })()
     }
 
@@ -21,14 +21,14 @@ const TodoItem:FC<TodoItem> = ({ item}) => {
         <div className={ classes['todo-item'] }>
             <div className={ classes['todo-item__text'] }>
                 <h3 className={ classes.title }>
-                    [{ item.id }]
+                    [{ item._id }]
                     { item.title }
                 </h3>
                 <p className={ classes.body }>
                     { item.body }
                 </p>
             </div>
-            <div className={ classes['todo-item__action']} onClick={ deleteTodo.bind(this, item.id)}>
+            <div className={ classes['todo-item__action']} onClick={ deleteTodo.bind(this, item._id)}>
                 &times;
             </div>
         </div>

@@ -1,5 +1,5 @@
-export interface Itodo{
-    id: number;
+export interface Itodo {
+    _id: number;
     title: string;
     body: string;
 }
