@@ -1,16 +1,19 @@
 import React, {FC, useContext} from 'react';
 import classes from './TodoList.module.css'
 import TodoItem from "../TodoItem/TodoItem";
-import { Itodo } from "../../../types/types";
-import {GlobalContext} from "../../../context/global";
+import {Itodo} from "../../../types/Itodo";
 
-const TodoList:FC = () => {
-    const { todoList } = useContext(GlobalContext);
+interface todoListProps {
+    todoList: Itodo[]
+    deleteMethod: Function
+}
+
+const TodoList:FC<todoListProps> = ({ todoList, deleteMethod}) => {
     return (
         <div className={ classes['todo-list'] }>
             {!!todoList.length
                 ? todoList.map(todoItem => (
-                    <TodoItem key={ todoItem._id } item={ todoItem } />
+                    <TodoItem key={ todoItem._id } item={ todoItem } deleteMethod={ deleteMethod } />
                 ))
                 :<div className={classes['todo-list__empty']}>Список задач пуст</div>
             }

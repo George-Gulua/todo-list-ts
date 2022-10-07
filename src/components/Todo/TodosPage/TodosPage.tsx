@@ -1,26 +1,26 @@
-import React, { FC, useContext, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import classes from './TodosPage.module.css'
 import CreateTodo from "../../CreateTodo/CreateTodo";
 import TodoList from "../TodoList/TodoList";
-import TodoRepository from "../../../API/todo-repository";
-import { GlobalContext } from "../../../context/global";
+import { Itodo } from "../../../types/Itodo";
+import { useTodo } from "../../../hooks/useTodo";
 
 
 
 const TodosPage:FC = () => {
-    const { setTodoList } = useContext(GlobalContext);
-    useEffect(   () => {
-        (async () => {
-            setTodoList(await TodoRepository.fetch())
-        })()
-    }, [setTodoList])
+    const [todoList, setTodoList] = useState<Itodo[]>([])
+    const methods = useTodo(todoList, setTodoList)
+    useEffect( () => {
+        methods.getAll().then()
+        console.log(123)
+    }, [])
 
     return (
         <div className={classes['todos-page']}>
             <h1 className={ classes['todos-page__title']}>Список задач</h1>
-            <CreateTodo />
+            <CreateTodo createMethod={ methods.create } />
             <hr/>
-            <TodoList />
+            <TodoList todoList={ todoList } deleteMethod={ methods.delete }/>
         </div>
     );
 };

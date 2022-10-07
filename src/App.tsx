@@ -4,18 +4,15 @@ import NavMenu from "./components/NavBar/NavMenu";
 import AppRouter from "./components/AppRouter/AppRouter";
 import { useState } from "react";
 import { GlobalContext } from "./context/global";
-import { Itodo } from "./types/types";
+import { Itodo } from "./types/Itodo";
 import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 
 function App() {
     const [isAuth, setIsAuth] = useState(false)
-    const [todoList, setTodoList] = useState<Itodo[]>([])
     return (
         <GlobalContext.Provider value={{
             isAuth,
             setIsAuth,
-            todoList,
-            setTodoList
         }}>
             <ErrorBoundary>
                 <BrowserRouter>

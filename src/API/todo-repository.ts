@@ -1,16 +1,29 @@
 import axios from 'axios';
+import { IRepository } from "../types/Irepository";
+import { Itodo } from "../types/Itodo";
 
-export default class TodoRepository {
-    static async fetch() {
-        const { data } = await axios.get('http://localhost:2000/api/todos')
-        return data
-    }
-    static async create(item: {}) {
-        const { data } = await axios.post('http://localhost:2000/api/todos', item)
-        return data
-    }
-    static async deleteById(_id: {}) {
-        const { data } = await axios.delete(`http://localhost:2000/api/todos/${_id}`)
-        return data
-    }
+interface TodoRepositoryRest extends IRepository<Itodo>{
+    link: string
+}
+
+export default class TodoRepository implements TodoRepositoryRest{
+    link = `http://localhost:2000/api/todos`
+    getAll = (): any => {
+        return (async () => {
+            const { data } = await axios.get(this.link)
+            return data
+        })()
+    };
+    create = (item: {}): any => {
+        return (async () => {
+            const { data } = await axios.post(this.link, item)
+            return data
+        })()
+    };
+    delete = (_id: {}): any => {
+        return (async () => {
+            const { data } = await axios.delete(`${this.link}/${_id}`)
+            return data
+        })()
+    };
 }

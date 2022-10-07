@@ -1,22 +1,13 @@
 import classes from './TodoItem.module.css';
 import { FC, useContext } from "react";
-import {Itodo} from "../../../types/types";
-import TodoRepository from "../../../API/todo-repository";
-import { GlobalContext } from "../../../context/global";
+import {Itodo} from "../../../types/Itodo";
 
 interface TodoItemProps  {
     item: Itodo;
+    deleteMethod: Function
 }
 
-const TodoItem:FC<TodoItemProps> = ({ item}) => {
-    const { setTodoList } = useContext(GlobalContext);
-
-    const deleteTodo = (_id: {}) => {
-        (async () => {
-            setTodoList(await TodoRepository.deleteById(_id))
-        })()
-    }
-
+const TodoItem:FC<TodoItemProps> = ({ item, deleteMethod}) => {
     return (
         <div className={ classes['todo-item'] }>
             <div className={ classes['todo-item__text'] }>
@@ -28,7 +19,7 @@ const TodoItem:FC<TodoItemProps> = ({ item}) => {
                     { item.body }
                 </p>
             </div>
-            <div className={ classes['todo-item__action']} onClick={ deleteTodo.bind(this, item._id)}>
+            <div className={ classes['todo-item__action']} onClick={ deleteMethod.bind(this, item._id) }>
                 &times;
             </div>
         </div>
