@@ -11,8 +11,7 @@ const TodosPage:FC = () => {
     const [todoList, setTodoList] = useState<Itodo[]>([])
     const methods = useTodo(todoList, setTodoList)
     useEffect( () => {
-        methods.getAll().then()
-        console.log(123)
+        methods.getAll()
     }, [])
 
     return (

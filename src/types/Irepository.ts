@@ -1,5 +1,5 @@
 export interface IRepository<T> {
-    getAll: () => T[]
-    create: (data: T) => T[]
-    delete: (_id: number) => T[]
+    getAll: () =>  Promise<any>
+    create: (data: T) => Promise<any>
+    delete: (_id: number) => Promise<any>
 }
