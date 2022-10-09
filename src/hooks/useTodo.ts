@@ -1,5 +1,5 @@
-import {Itodo} from "../types/Itodo";
-import {RepoFactory} from "../factory/repoFactory";
+import { Itodo } from "../types/Itodo";
+import { RepoFactory } from "../factory/repoFactory";
 
 interface methodsInterface {
     getAll: () => Promise<void>
@@ -8,7 +8,7 @@ interface methodsInterface {
 }
 
 export const useTodo = (todoList: Itodo[], setTodoList:(todoList: Itodo[]) => void) => {
-    const todoRepository = new RepoFactory('local-storag').repository
+    const todoRepository = new RepoFactory('local-storage').repository
     const methods:methodsInterface = {
         getAll: async (): Promise<void> => setTodoList(await todoRepository.getAll()),
         create: async (item: Itodo): Promise<void> => setTodoList(await todoRepository.create(item)),

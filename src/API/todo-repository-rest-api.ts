@@ -2,22 +2,19 @@ import axios from 'axios';
 import { IRepository } from "../types/Irepository";
 import { Itodo } from "../types/Itodo";
 
-interface TodoRepositoryRestApiInterface extends IRepository<Itodo>{
-    link: string
-}
+axios.defaults.baseURL = `http://localhost:2000/api/todos`
 
-export default class TodoRepositoryRestApi implements TodoRepositoryRestApiInterface{
-    link = `http://localhost:2000/api/todos`
+export default class TodoRepositoryRestApi implements IRepository<Itodo>{
     getAll = async (): Promise<any> => {
-            const { data } =  await axios.get(this.link).then()
-            return data
-    };
-    create = async (item: {}): Promise<any> => {
-        const { data } = await axios.post(this.link, item)
+        const { data } =  await axios.get('')
         return data
     };
-    delete = async (_id: {}): Promise<any> => {
-        const { data } = await axios.delete(`${this.link}/${_id}`)
+    create = async (item: Itodo): Promise<any> => {
+        const { data } = await axios.post('', item)
+        return data
+    };
+    delete = async (_id: number): Promise<any> => {
+        const { data } = await axios.delete(`/${_id}`)
         return data
     };
 }
