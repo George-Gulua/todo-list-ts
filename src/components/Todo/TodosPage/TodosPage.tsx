@@ -5,13 +5,11 @@ import TodoList from "../TodoList/TodoList";
 import { Itodo } from "../../../types/Itodo";
 import { useTodo } from "../../../hooks/useTodo";
 
-
-
 const TodosPage:FC = () => {
     const [todoList, setTodoList] = useState<Itodo[]>([])
     const methods = useTodo(todoList, setTodoList)
     useEffect( () => {
-        methods.getAll()
+        methods.getAll().then()
     }, [])
 
     return (

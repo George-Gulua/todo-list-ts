@@ -8,7 +8,7 @@ interface methodsInterface {
 }
 
 export const useTodo = (todoList: Itodo[], setTodoList:(todoList: Itodo[]) => void) => {
-    const todoRepository = new RepoFactory('local-storage').repository
+    const todoRepository = new RepoFactory('restapi').repository
     const methods:methodsInterface = {
         getAll: async (): Promise<void> => setTodoList(await todoRepository.getAll()),
         create: async (item: Itodo): Promise<void> => setTodoList(await todoRepository.create(item)),

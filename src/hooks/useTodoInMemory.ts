@@ -14,5 +14,5 @@ export const useTodoInMemory = () => {
         create: (item) => setTodoList([...todoList, item]),
         delete: delete_id => setTodoList(todoList.filter(({ _id } : { _id: number}) => _id !== delete_id))
     }
-    return methods
+    return [methods, todoList]
 }
