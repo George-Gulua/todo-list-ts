@@ -4,7 +4,7 @@ import NavMenu from "./components/NavBar/NavMenu";
 import AppRouter from "./components/AppRouter/AppRouter";
 import { useState } from "react";
 import { GlobalContext } from "./context/global";
-import { Itodo } from "./types/Itodo";
+import { ITodo } from "./types/ITodo";
 import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 
 function App() {

@@ -1,18 +1,18 @@
 import { useState } from "react";
-import { Itodo } from "../types/Itodo";
+import { ITodo } from "../types/ITodo";
 
 interface methodsInMemoryInterface {
-    getAll: () => Itodo[]
-    create: (item: Itodo) => void
+    getAll: () => ITodo[]
+    create: (item: ITodo) => void
     delete: (delete_id: number) => void
 }
 
 export const useTodoInMemory = () => {
-    const [todoList, setTodoList] = useState<Itodo[]>([])
+    const [todoList, setTodoList] = useState<ITodo[]>([])
     const methods:methodsInMemoryInterface = {
         getAll: () => todoList ,
         create: (item) => setTodoList([...todoList, item]),
-        delete: delete_id => setTodoList(todoList.filter(({ _id } : { _id: number}) => _id !== delete_id))
+        delete: delete_id => setTodoList(todoList.filter(({ id } : { id: number}) => id !== delete_id))
     }
     return [methods, todoList]
 }
